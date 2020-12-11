@@ -3,6 +3,9 @@ package com.example.miprimerappandroid;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,9 +24,26 @@ public class MainActivity extends AppCompatActivity {
         resultado = add("2,8");
         Log.d("Resultado3", String.valueOf(resultado));
 
-        TextView miTexto = findViewById(R.id.textViewMain);
+        TextView miTexto = findViewById(R.id.textViewMain2);
+        TextView miTexto2 = findViewById(R.id.textViewMain);
         miTexto.setText("El resultado es: " + resultado);
+        miTexto2.setText("Hasta mañana.");
 
+        EditText NUM1 = findViewById(R.id.editTextNumber);
+        EditText NUM2 = findViewById(R.id.editTextNumber2);
+        Button Sumar = findViewById(R.id.button);
+        TextView Resul = findViewById(R.id.textView2);
+
+        Sumar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int numero1 = Integer.parseInt(NUM1.getText().toString());
+                int numero2 = Integer.parseInt(NUM2.getText().toString());
+                int total = numero1 + numero2;
+
+                Resul.setText(""+total);
+            }
+        });
     }
     private int add (String values) {
         if (values.isEmpty()) {
