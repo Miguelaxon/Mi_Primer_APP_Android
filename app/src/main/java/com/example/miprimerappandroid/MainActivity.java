@@ -2,6 +2,8 @@ package com.example.miprimerappandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,6 +11,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        int resultado = add("");
+        Log.d("Resultado1", String.valueOf(resultado));
+
+        resultado = add("2");
+        Log.d("Resultado2", String.valueOf(resultado));
+
+        resultado = add("2,8");
+        Log.d("Resultado3", String.valueOf(resultado));
+
+        TextView miTexto = findViewById(R.id.textViewMain);
+        miTexto.setText("El resultado es: " + resultado);
+
     }
     private int add (String values) {
         if (values.isEmpty()) {
