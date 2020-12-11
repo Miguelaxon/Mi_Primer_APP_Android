@@ -10,12 +10,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    private String add(String values){
-        if(values.isEmpty()) {
-            return "0";
-        } else if(values.equals("1")){
-            return "1";
+    private int add (String values) {
+        if (values.isEmpty()) {
+            return 0;
+        } else if (values.length() == 3){
+            String valuesArray[] = values.split(",");
+            int result = Integer.parseInt(valuesArray[0]) + Integer.parseInt(valuesArray[1]);
+            return result;
+        } else {
+            return Integer.parseInt(values);
         }
-        return "";
     }
 }
